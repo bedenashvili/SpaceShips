@@ -82,5 +82,6 @@ internal class Program
         TimeSpan timeSpan = stopwatch.Elapsed;
         Console.WriteLine($"Execution time: {timeSpan.Minutes}M:{timeSpan.Seconds}S:{timeSpan.Milliseconds}MS");
         Console.WriteLine($"\"{battleLogFileName}\" detailed battle log is available in the program folder.");
+        Console.ReadLine();
     }
 }
