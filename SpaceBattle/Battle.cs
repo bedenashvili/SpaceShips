@@ -4,7 +4,7 @@ namespace SpaceBattle
 {
     internal class Battle
     {
-        public static List<ShipActionProcessor> UpdateShipStates(List<Ship> shipsInBattle, int i)
+        public static List<ShipActionProcessor> UpdateShipStates(List<Ship> shipsInBattle, int time)
         {
             List<ShipActionProcessor> ListofShipStates = new();
             ShipAimingProcessor fromShip;
@@ -13,7 +13,7 @@ namespace SpaceBattle
             {
                 Ship ship = shipsInBattle[j];
                 fromShip = new(ship, shipsInBattle);
-                shipState = new(fromShip, ship, i);
+                shipState = new(fromShip, ship, time);
                 ListofShipStates.Add(shipState);
             }
             List<double> damageByShip = new();
