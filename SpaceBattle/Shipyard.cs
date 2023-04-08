@@ -70,7 +70,7 @@ namespace SpaceBattle
         public Rechargeable() { }
         public Rechargeable(string name, int totalSlots, List<BaseValue> bonusesDatabase)
             : base(name, totalSlots, bonusesDatabase) { }
-        public Rechargeable(string name, BonusType type1, double bonus1, BonusType type2, double bonus2) 
+        public Rechargeable(string name, BonusType type1, double bonus1, BonusType type2, double bonus2)
             : base(name, type1, bonus1)
         {
             Bonuses.Add(new()
