@@ -22,7 +22,7 @@ namespace SpaceBattle
             Value = value;
         }
         public override string ToString()
-            => $"Type: {Type}; Value: {Value}]";
+            => $"[Type: {Type}; Value: {Value}]";
         public override bool Equals(object? obj)
             => obj?.ToString() == ToString();
         public override int GetHashCode()
@@ -38,7 +38,7 @@ namespace SpaceBattle
             IsMultiplicative = isMultiplicative;
         }
         public override string ToString()
-            => $"Type: {Type}; Value: {Value}; Multiplicative: {IsMultiplicative}]";
+            => $"[Type: {Type}; Value: {Value}; Multiplicative: {IsMultiplicative}]";
         public override bool Equals(object? obj)
             => obj?.ToString() == ToString();
         public override int GetHashCode()
