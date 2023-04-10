@@ -59,7 +59,7 @@ namespace SpaceBattle
                     else if (shield.GetDefenceValue() < remaindedDamage)
                     {
                         remaindedDamage -= shield.GetDefenceValue();
-                        // maybe just shield.SetDefenceValue(0) ? but (-(shield.GetDefenceValue())) is more clearer, imo
+                        // maybe just shield.SetDefenceValue(0) ? but (-(shield.GetDefenceValue())) is clearer, imo
                         shield.SetDefenceValue(-(shield.GetDefenceValue()));
                     }
                 }
