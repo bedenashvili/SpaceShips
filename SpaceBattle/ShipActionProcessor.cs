@@ -30,11 +30,11 @@ namespace SpaceBattle
                         || shield.Capacity < (repairedAmount + shield.GetDefenceValue()))
                     {
                         repairedAmount = shield.Capacity - shield.GetDefenceValue();
-                        shield.AddDefenceValue(repairedAmount);
+                        shield.SetDefenceValue(repairedAmount);
                     }
                     else
                     {
-                        shield.AddDefenceValue(repairedAmount);
+                        shield.SetDefenceValue(repairedAmount);
                     }
                     ShieldData shieldData = new(repairedAmount, shield.Name);
                     listOfRepairedAmountPerShield.Add(shieldData);

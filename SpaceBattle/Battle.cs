@@ -52,14 +52,15 @@ namespace SpaceBattle
                 {
                     if (shield.GetDefenceValue() >= remaindedDamage)
                     {
-                        shield.AddDefenceValue(-remaindedDamage);
+                        shield.SetDefenceValue(-remaindedDamage);
                         remaindedDamage -= remaindedDamage;
                         break;
                     }
                     else if (shield.GetDefenceValue() < remaindedDamage)
                     {
                         remaindedDamage -= shield.GetDefenceValue();
-                        shield.AddDefenceValue(-(shield.GetDefenceValue()));
+                        // maybe just shield.SetDefenceValue(0) ? but (-(shield.GetDefenceValue())) is more clearer, imo
+                        shield.SetDefenceValue(-(shield.GetDefenceValue()));
                     }
                 }
             }
@@ -73,12 +74,12 @@ namespace SpaceBattle
                 {
                     if (armor.GetDefenceValue() >= remaindedDamage)
                     {
-                        armor.AddDefenceValue(-remaindedDamage);
+                        armor.SetDefenceValue(-remaindedDamage);
                         break;
                     }
                     else if (armor.GetDefenceValue() < remaindedDamage)
                     {
-                        armor.AddDefenceValue(-(armor.GetDefenceValue()));
+                        armor.SetDefenceValue(-(armor.GetDefenceValue()));
                         break;
                     }
                 }

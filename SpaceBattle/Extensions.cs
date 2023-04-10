@@ -100,7 +100,7 @@ namespace SpaceBattle
             .Where(x => x.Type == BonusType.Shield || x.Type == BonusType.Armor)
             .Select(x => x.Value)
             .Sum();
-        public static void AddDefenceValue(this ShipPart defensiveIteam, double value)
+        public static void SetDefenceValue(this ShipPart defensiveIteam, double value)
         {
             foreach (var bonus in defensiveIteam.Bonuses)
             {
