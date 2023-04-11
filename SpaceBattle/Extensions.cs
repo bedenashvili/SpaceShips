@@ -85,15 +85,23 @@ namespace SpaceBattle
         public static double GetReloadTime(this Rechargeable rechargable)
             => TimeSpan
             .FromSeconds(rechargable.Bonuses.Where(x => x.Type == BonusType.ReloadTime).Select(x => x.Value).Sum()).TotalMilliseconds;
-        public static double ReleaseCharge(this Rechargeable rechargable)
+        public static double ReleaseCharge(this Rechargeable rechargable, double battleTime)
         {
+            rechargable.ChargeTimeSnapshot = battleTime;
             rechargable.IsOnCooldown = true;
             return rechargable.GetValue();
         }
         public static void UpdateCooldownState(this Rechargeable rechargable, double battleTime)
         {
-            var reloadTIme = rechargable.GetReloadTime();
-            rechargable.IsOnCooldown = battleTime % reloadTIme != 0;
+            var reloadTime = rechargable.GetReloadTime();
+            if (rechargable.ChargeTimeSnapshot == 0)
+            {
+                rechargable.IsOnCooldown = battleTime % reloadTime != 0;
+            }
+            else
+            {
+                rechargable.IsOnCooldown = battleTime - rechargable.ChargeTimeSnapshot != reloadTime;
+            }
         }
         public static double GetDefenceValue(this ShipPart defensiveIteam)
             => defensiveIteam.Bonuses

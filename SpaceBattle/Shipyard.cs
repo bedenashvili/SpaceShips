@@ -67,6 +67,7 @@ namespace SpaceBattle
     public abstract class Rechargeable : ShipPart
     {
         public bool IsOnCooldown { get; set; }
+        public double ChargeTimeSnapshot { get; set; }
         public Rechargeable() { }
         public Rechargeable(string name, int totalSlots, List<BaseValue> bonusesDatabase)
             : base(name, totalSlots, bonusesDatabase) { }

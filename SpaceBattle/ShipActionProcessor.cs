@@ -25,7 +25,7 @@ namespace SpaceBattle
                 if (shield.IsOnCooldown == false
                     && shield.Capacity > shield.GetDefenceValue())
                 {
-                    double repairedAmount = shield.ReleaseCharge();
+                    double repairedAmount = shield.ReleaseCharge(battleTime);
                     if (repairedAmount > (shield.Capacity - shield.GetDefenceValue())
                         || shield.Capacity < (repairedAmount + shield.GetDefenceValue()))
                     {
@@ -50,7 +50,7 @@ namespace SpaceBattle
             {
                 if (rechargeable.IsOnCooldown == false)
                 {
-                    GunData gunsData = new(rechargeable.ReleaseCharge(), rechargeable.Name, enemyName);
+                    GunData gunsData = new(rechargeable.ReleaseCharge(battleTime), rechargeable.Name, enemyName);
                     listOfGuns.Add(gunsData);
                 }
             }
